@@ -11,7 +11,7 @@ const Details: React.FC = () => {
   const { id } = useParams()
   const dispatch = useAppDispatch()
   const {allPosts} = useSelector((state: RootState) => state.posts)
-  const post = allPosts[Number(id!)-1]
+  const post = allPosts.find(obj => obj.id === Number(id!))
 
   useEffect(() => {
     if (!allPosts.length) {

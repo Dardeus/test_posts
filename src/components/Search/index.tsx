@@ -1,26 +1,21 @@
 import styles from './Search.module.scss'
-import React, {Dispatch, useCallback, useRef, useState} from "react";
-import {debounce} from 'lodash'
+import React, {useRef} from "react";
+import {useAppDispatch} from "../../redux/store";
+import {fetchPosts} from "../../redux/slices/postSlice";
+import {setSearch} from "../../redux/slices/filterSlice";
 
 type SearchProps = {
-  setSearch: Dispatch<React.SetStateAction<string>>
+  search: string
 };
 
-const Search: React.FC<SearchProps> = ({setSearch}) => {
-  const [value, setValue] = useState('')
+const Search: React.FC<SearchProps> = ({search}) => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const dispatch = useAppDispatch()
 
   const onClickInput = (str: string) => {
-    setValue(str)
-    debounceSearchValue(str)
+    dispatch(setSearch(str))
+    dispatch(fetchPosts((`https://jsonplaceholder.typicode.com/posts?title_like=${str}&_limit=5`)))
   }
-
-  const debounceSearchValue = useCallback(
-    debounce((str) => {
-      setSearch(str)
-    }, 300),
-    [],
-  )
 
   return (
     <div className={styles.root}>
@@ -33,7 +28,7 @@ const Search: React.FC<SearchProps> = ({setSearch}) => {
            85-35.2C248.5,96,278.7,108.5,301.4,131.2z"/></svg>
       <input
         ref={inputRef}
-        value={value}
+        value={search}
         onChange={(e) => onClickInput(e.target.value)}
         className={styles.input}
         placeholder='Поиск по названию статьи'/>

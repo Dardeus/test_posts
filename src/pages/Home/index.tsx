@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {fetchPosts} from "../../redux/slices/postSlice";
 
 import styles from './Home.module.scss'
@@ -10,14 +10,12 @@ import Search from "../../components/Search";
 const Home: React.FC = () => {
   const dispatch = useAppDispatch()
   const {allPosts} = useSelector((state: RootState) => state.posts)
-  const [search, setSearch] = useState('')
+  const {search} = useSelector((state: RootState) => state.filter)
   const filtered = allPosts.filter((post) => post.title.includes(search))
-
-  const getPosts = async () => dispatch(fetchPosts('https://jsonplaceholder.typicode.com/posts?_limit=5'))
 
   useEffect(() => {
     if (allPosts.length === 0 && search===''){
-      getPosts()
+      dispatch(fetchPosts('https://jsonplaceholder.typicode.com/posts?_limit=5'))
     }
   }, [search]);
 
@@ -25,7 +23,7 @@ const Home: React.FC = () => {
     <div className={styles.root}>
       <h1>Блог</h1>
       <p>Здесь мы делимся интересными кейсами из наших проектов, пишем про IT, а также переводим зарубежные статьи</p>
-      <Search setSearch={setSearch}/>
+      <Search search={search}/>
       {filtered.length ? (<div className={styles.all_posts}>
         {<Post first={true} {...filtered[0]}/>}
         <div className={styles.posts}>
