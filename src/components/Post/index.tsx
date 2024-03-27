@@ -24,7 +24,7 @@ const Post: React.FC<PostProps> = (post) => {
         {post.first && <p>{post.body}</p>}
         <div className={styles.interactive}>
           <Thumbs {...post}/>
-          <Link to={`/posts/${post.id}`}>
+          <Link to={`/test_posts/posts/${post.id}`}>
             <button>Читать далее</button>
           </Link>
         </div>

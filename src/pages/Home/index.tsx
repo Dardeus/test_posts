@@ -14,6 +14,7 @@ const Home: React.FC = () => {
   const filtered = allPosts.filter((post) => post.title.includes(search))
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (allPosts.length === 0 && search===''){
       dispatch(fetchPosts('https://jsonplaceholder.typicode.com/posts?_limit=5'))
     }

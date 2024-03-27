@@ -15,6 +15,7 @@ const Details: React.FC = () => {
   const post = allPosts.find(obj => obj.id === Number(id!))
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!allPosts.length) {
       dispatch(fetchPosts('https://jsonplaceholder.typicode.com/posts'))
     }
@@ -23,7 +24,7 @@ const Details: React.FC = () => {
   return (
     <div className={styles.root}>
       <div className={styles.interactive}>
-        <Link to={`/`}>
+        <Link to={`/test_posts`}>
           <button><img
             className={styles.arrow}
             onClick={() => {
