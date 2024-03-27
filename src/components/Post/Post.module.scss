@@ -8,8 +8,53 @@
     object-fit:cover;
     border-radius: 10px 10px 0 0;
   }
+
+  .post_info {
+    margin: 16px;
+
+    .title {
+      margin-bottom: 32px;
+    }
+
+    .interactive {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      button {
+        padding: 14px 24px 12px 24px;
+        border-radius: 60px;
+        border: 2px solid #0A0A0A;
+        background: white;
+
+        font-family: Roboto,sans-serif;
+        font-size: 16px;
+        line-height: 18.75px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 
 .first {
+  .interactive {
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    justify-content: end !important;
 
+    div {
+      position: relative;
+      top: -160px;
+      left: 175px;
+
+      @media (max-width: 1245px) {
+        top: 0;
+        left: 0;
+      }
+    }
+  }
 }

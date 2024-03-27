@@ -19,12 +19,16 @@ const Post: React.FC<PostProps> = (post) => {
   return (
     <div ref={divBlock} className={styles.root + (post.first ? ' ' + styles.first : '') }>
       <img className={styles.main_image} src={`https://placehold.co/1920x1080/png`} alt='img'/>
-      <h2>{post.title}</h2>
-      {post.first && <p>{post.body}</p>}
-      <Thumbs {...post}/>
-      <Link to={`/posts/${post.id}`}>
-        Читать далее
-      </Link>
+      <div className={styles.post_info}>
+        <h2 className={styles.title}>{post.title}</h2>
+        {post.first && <p>{post.body}</p>}
+        <div className={styles.interactive}>
+          <Thumbs {...post}/>
+          <Link to={`/posts/${post.id}`}>
+            <button>Читать далее</button>
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }

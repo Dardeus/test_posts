@@ -17,23 +17,21 @@ const Thumbs: React.FC<PostProps> = ({id, like, likes, dislikes}) => {
       <img
         className={styles.thumbUpAlt}
         onClick={() => {
-          console.log(like)
           dispatch(setLike(id))
         }}
         src={ like === 1 ? thumbUp : thumbUpAlt }
         alt="Thumb Up Alt"
       />
-      <span>{likes + (like === 1 ? 1 : 0)}</span>
+      <p>{likes + (like === 1 ? 1 : 0)}</p>
       <img
         className={styles.thumbDownAlt}
         onClick={() => {
-          console.log(like)
           dispatch(setDislike(id))
         }}
         src={ like === -1 ? thumbDown : thumbDownAlt }
         alt="Thumb Down Alt"
       />
-      <span>{dislikes + (like === -1 ? 1 : 0)}</span>
+      <p>{dislikes + (like === -1 ? 1 : 0)}</p>
     </div>
   )
 }
