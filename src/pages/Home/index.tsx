@@ -27,7 +27,12 @@ const Home: React.FC = () => {
       {filtered.length ? (<div className={styles.all_posts}>
         {<Post first={true} {...filtered[0]}/>}
         <div className={styles.posts}>
-          {filtered.slice(1).map((post) => <Post key={post.id} {...post}/>)}
+          <div className={styles.left}>
+            {filtered.slice(1, 3).map((post) => <Post key={post.id} {...post}/>)}
+          </div>
+          <div className={styles.right}>
+            {filtered.slice(3, 5).map((post) => <Post key={post.id} {...post}/>)}
+          </div>
         </div>
       </div>) : <></>}
     </div>

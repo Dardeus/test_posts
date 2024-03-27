@@ -19,13 +19,33 @@
   .input {
     border: 1px solid #919EAB52;
     padding: 9px 14px;
-    width: 96.7%;
-    padding-left: 2.4%;
+    width: 96.3%;
+    padding-left: 2.7%;
     border-radius: 6px;
     font-size: 16px;
 
     &:focus {
       border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 1600px) {
+      width: 95.5%;
+      padding-left: 3.2%;
+    }
+
+    @media (max-width: 1300px) {
+      width: 94%;
+      padding-left: 4%;
+    }
+
+    @media (max-width: 1200px) {
+      width: 93%;
+      padding-left: 5%;
+    }
+
+    @media (max-width: 950px) {
+      width: 90%;
+      padding-left: 7%;
     }
   }
 }
