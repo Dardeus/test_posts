@@ -1,0 +1,13 @@
+.root {
+  border: 1px solid black;
+  border-radius: 10px;
+  .main_image {
+    width:100%;
+    object-fit:cover;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.first {
+
+}

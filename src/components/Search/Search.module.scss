@@ -1,0 +1,47 @@
+.root {
+  position: relative;
+  margin-left: 400px;
+  margin-top: 5px;
+
+  @media (max-width: 1500px) {
+    margin-left: -300px;
+  }
+
+  @media (max-width: 1400px) {
+    margin-left: -200px;
+  }
+
+  @media (max-width: 1200px) {
+    margin-left: -100px;
+  }
+
+  @media (max-width: 1100px) {
+    margin-left: 0;
+  }
+}
+
+.search_icon {
+  width: 27px;
+  height: 27px;
+  opacity: 0.3;
+  position: absolute;
+  left: 8px;
+  top: 7px;
+}
+
+.input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 9px 14px;
+  padding-left: 37px;
+  border-radius: 20px;
+  width: 300px;
+  font-size: 16px;
+
+  &:focus {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 700px) {
+    width: 200px;
+  }
+}
